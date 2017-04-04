@@ -2,15 +2,15 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8">
-    <title>PHP��GitHub�̕׋��p�̃y�[�W(menu2.php)</title>
+    <title>PHPとGitHubの勉強用のページ(menu2.php)</title>
     <link rel="stylesheet" type="text/css" href="./css/menu2.css" media="all">
   </head>
   <body class="menutitle">
     <div>
-      ���j���[�Q
+      メニュー２
     </div>
     <div>
-      PHP��GitHub�̕׋��p�̃y�[�W()
+      PHPとGitHubの勉強用のページ()
     </div>
   </body>
 </html>
