@@ -9,19 +9,39 @@
 		<div>
 			<a href="top.html">＜＜TOPページ</a>
 		</div>
-		<div align=center>
-			<table class="menutitle">
+		<div align="center">
+			<table class="common">
 				<tr>
-					<td>
-						<div>
-							メニュー２
-						</div>
-						<div>
-							～PHPとGitHubの勉強用のページ～
-						</div>
-						<div>
-							(ここに記事を記載予定)
-						</div>
+					<td align="center">
+						<table class="title">
+							<tr>
+								<td>
+									<div>
+										メニュー２
+									</div>
+									<div>
+										～PHPとGitHubの勉強用のページ～
+									</div>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr class="blankrow"><td></td></tr>
+				<tr>
+					<td align="left">
+						<table class="topics">
+							<tr class="topicshead">
+								<td>
+									PHPを扱う前に・・・
+								</td>
+							</tr>
+							<tr class="topicsbody">
+								<td>
+									PHPを扱う前にPHPの実行環境を整えましょう。
+								</td>
+							</tr>
+						</table>
 					</td>
 				</tr>
 			</table>
