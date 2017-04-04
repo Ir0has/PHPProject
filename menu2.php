@@ -10,7 +10,7 @@
 			<a href="top.html">＜＜TOPページ</a>
 		</div>
 		<div align=center>
-			<table class="menutitle" border="1">
+			<table class="menutitle">
 				<tr>
 					<td>
 						<div>
