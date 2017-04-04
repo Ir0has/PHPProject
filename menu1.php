@@ -7,10 +7,10 @@
   </head>
   <body class="menu1title">
     <div>
-      ���j���[�P
+      メニュー１
     </div>
     <div>
-      �����łȂ񂩂���\��n
+      ここでなんかする予定地
     </div>
   </body>
 </html>
