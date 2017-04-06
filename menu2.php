@@ -1,3 +1,31 @@
+<?php
+	//MySQLへの接続文字列を定義
+	$dsn = 'mysql:host=localhost;dbname=testphp;charset=utf8';
+	$user = 'root';
+	$pass = 'root';
+	
+	//MySQLにPDO接続するためのクラスを定義
+	$db = new PDO($dsn, $user, $pass);
+	$db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+	
+	//プリペイドステートメントを作成
+	//球団名のコンボボックスを取得するクエリをセット
+	$stmt = $db->prepare("
+			select * from teamname"
+		);
+	
+	//例外発生時にエラーを出力
+	try{
+		//クエリを実行
+		$stmt->execute();
+	}catch(PDOExeption $e){
+		//クエリ実行時にエラーが発生した場合、エラーで返却
+		die('エラー：' . $e->getMessage());
+	}
+	
+?>
+
+
 <!DOCTYPE html>
 <html lang="ja">
 	<head>
@@ -45,18 +73,13 @@
 											<div>球団<div/>
 											<div>
 												<select name="team" form="testact1">
-													<option value="読売ジャイアンツ" selected>読売ジャイアンツ</option>
-													<option value="阪神タイガース">阪神タイガース</option>
-													<option value="中日ドラゴンズ">中日ドラゴンズ</option>
-													<option value="横浜DeNAベイスターズ">横浜DeNAベイスターズ</option>
-													<option value="広島東洋カープ">広島東洋カープ</option>
-													<option value="東京ヤクルトスワローズ">東京ヤクルトスワローズ</option>
-													<option value="オリックス・バファローズ">オリックス・バファローズ</option>
-													<option value="福岡ソフトバンクホークス">福岡ソフトバンクホークス</option>
-													<option value="北海道日本ハムファイターズ">北海道日本ハムファイターズ</option>
-													<option value="千葉ロッテマリーンズ">千葉ロッテマリーンズ</option>
-													<option value="埼玉西武ライオンズ">埼玉西武ライオンズ</option>
-													<option value="東北楽天ゴールデンイーグルズ">東北楽天ゴールデンイーグルズ</option>
+													<?php
+														//コンボボックスに初めに取得したデータを表示
+														while ($row = $stmt->fetch()):
+															echo '<option value=\"' . $row['no'] . '\">' . $row['teamname'] . '</option>';
+														endwhile;
+													?>
+													
 												</select>
 											</div>
 											<div>背番号<div/>
