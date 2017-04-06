@@ -26,7 +26,7 @@
 	
 	
 	//MySQLへの接続文字列を定義
-	$dsn = 'mysql:host=localhost;dbname=testphp;charset=utf-8';
+	$dsn = 'mysql:host=localhost;dbname=testphp;charset=utf8';
 	$user = 'root';
 	$pass = 'root';
 	
@@ -54,12 +54,13 @@
 		//「menu2.php」に返却
 		header('Location: menu2.php');
 		exit();
-		
+		$db= null;
 	}catch(PDOExeption $e){
 		//クエリ実行時にエラーが発生した場合、エラーで返却
 		echo 'エラー';
 		//die('エラー：' . $e->getMessage());
 		//header('Location: menu2.php');
+		$db= null;
 	}
 	
 	

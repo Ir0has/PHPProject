@@ -8,20 +8,7 @@
 	$db = new PDO($dsn, $user, $pass);
 	$db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 	
-	//プリペイドステートメントを作成
-	//球団名のコンボボックスを取得するクエリをセット
-	$stmt = $db->prepare("
-			select * from teamname"
-		);
-	
-	//例外発生時にエラーを出力
-	try{
-		//クエリを実行
-		$stmt->execute();
-	}catch(PDOExeption $e){
-		//クエリ実行時にエラーが発生した場合、エラーで返却
-		die('エラー：' . $e->getMessage());
-	}
+
 	
 ?>
 
@@ -69,14 +56,29 @@
 									<div>PHPでMySQLのテーブルレコードにフォームデータの値を登録してみる</div>
 									<div>
 										<Form id="testact1" action="testact1.php" method="post" class="form1">
-											<div class="topicssubhead">サンプルフォーム</div>
+											<div class="topicssubhead">選手名登録(サンプル)</div>
 											<div>球団<div/>
 											<div>
 												<select name="team" form="testact1">
 													<?php
+														//プリペイドステートメントを作成
+														//球団名のコンボボックスを取得するクエリをセット
+														$stmt = $db->prepare("
+																select * from teamname"
+															);
+														
+														//例外発生時にエラーを出力
+														try{
+															//クエリを実行
+															$stmt->execute();
+														}catch(PDOExeption $e){
+															//クエリ実行時にエラーが発生した場合、エラーで返却
+															die('エラー：' . $e->getMessage());
+														}
+														
 														//コンボボックスに初めに取得したデータを表示
 														while ($row = $stmt->fetch()):
-															echo '<option value=\"' . $row['no'] . '\">' . $row['teamname'] . '</option>';
+															echo "<option value=\"" . $row['no'] . "\">" . $row['teamname'] . "</option>";
 														endwhile;
 													?>
 													
@@ -84,10 +86,54 @@
 											</div>
 											<div>背番号<div/>
 											<div><input type="text" name="backno" aria-required="true"></div>
-											<div>氏名<div/>
+											<div>選手名<div/>
 											<div><input type="text" name="humname" aria-required="true"></div>
 											<div><input type="submit" value="登録" class="botton"></div>
-										</form>
+										</Form>
+									</div>
+									<div class="blankrow"></div>
+									<div>次に登録したデータを一覧で表示してみる</div>
+									<div>
+										<table class="datalist">
+											<thread>
+												<tr>
+													<td class="dataheader">
+														チーム名
+													</td>
+													<td class="dataheader">
+														背番号
+													</td>
+													<td class="dataheader">
+														選手名
+													</td>
+												</tr>
+											</thread>
+											<tbody>
+												<?php
+													//プリペイドステートメントを作成
+													//球団名のコンボボックスを取得するクエリをセット
+													$stmt = $db->prepare("
+															SELECT teamname.teamname,testact1.backno, testact1.humname FROM testact1,teamname WHERE testact1.teamno = teamname.no"
+														);
+													
+													//例外発生時にエラーを出力
+													try{
+														//クエリを実行
+														$stmt->execute();
+													}catch(PDOExeption $e){
+														//クエリ実行時にエラーが発生した場合、エラーで返却
+														die('エラー：' . $e->getMessage());
+													}
+													
+													//コンボボックスに初めに取得したデータを表示
+													while ($row = $stmt->fetch()):
+														//<tr><td>球団名</td><td>背番号</td><td>選手名</td></tr>
+														echo '<tr><td class=\'datarow\'>' . $row['teamname'] . '</td><td class=\'datarow\' style=\'text-align:center;\'>' . $row['backno'] . '</td><td class=\'datarow\'>' . $row['humname'] . '</td></tr>';
+													endwhile;
+													$db= null;
+												?>
+											</tbody>
+										</table>
 									</div>
 								</td>
 							</tr>
