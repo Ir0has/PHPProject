@@ -48,7 +48,7 @@
 						<table class="topics">
 							<tr class="topicshead">
 								<td>
-									PHP+MySQL テーブルレコードの登録
+									PHP+MySQL テーブルレコードの登録、表示、出力
 								</td>
 							</tr>
 							<tr class="topicsbody">
@@ -135,6 +135,12 @@
 											</tbody>
 										</table>
 									</div>
+									<div class="blankrow"></div>
+									<div>次に登録したデータを出力してみる</div>
+										<form id="output" action="testact2.php" method="post" class="form1">
+											<div><input type="text" readonly>　　<input type="botton" value="参照"></div>
+											<div><input type="submit" value="出力実行"></div>
+										</form>
 								</td>
 							</tr>
 						</table>
