@@ -15,7 +15,7 @@
 	font-size:300%;
 	line-height:150%;
 	text-align:center;
-	border:solid 10px #005599;
+	border:solid 10px #1166aa;
 	border-radius:1em;
 	background-color:#5555ff;
 }
@@ -42,6 +42,20 @@
 	font-weight:normal;
 }
 
+.form1{
+	border:solid 2px #111111;
+	border-radius:0.5em;
+	margin:5px;
+	padding:5px;
+}
 
+.topicssubhead{
+	font-size:120%;
+	font-weight:bolder;
+}
 
+.botton{
+	font-size:100%;
+	margin:5px
+}
 
