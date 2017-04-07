@@ -10,7 +10,7 @@
       メニュー１
     </div>
     <div>
-      ここでなんかする予定地
+     in Linux 
     </div>
   </body>
 </html>
