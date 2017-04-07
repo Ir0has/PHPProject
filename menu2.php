@@ -13,6 +13,19 @@
 ?>
 
 
+<script>
+	/**
+	 * 確認ダイアログの返り値によりフォーム送信
+	*/
+	function submitChk () {
+		/* 確認ダイアログ表示 */
+		var flag = confirm ( "データを出力します。\nよろしいでしょうか。");
+		/* flag が TRUEなら出力実行、FALSEなら出力しない */
+		return flag;
+	}
+</script>
+
+
 <!DOCTYPE html>
 <html lang="ja">
 	<head>
@@ -53,11 +66,11 @@
 							</tr>
 							<tr class="topicsbody">
 								<td>
-									<div>PHPでMySQLのテーブルレコードにフォームデータの値を登録してみる</div>
+									<div>①PHPでMySQLのテーブルレコードにフォームデータの値を登録してみる</div>
 									<div>
 										<Form id="testact1" action="testact1.php" method="post" class="form1">
 											<div class="topicssubhead">選手名登録(サンプル)</div>
-											<div>球団<div/>
+											<div>球団</div>
 											<div>
 												<select name="team" form="testact1">
 													<?php
@@ -81,18 +94,17 @@
 															echo "<option value=\"" . $row['no'] . "\">" . $row['teamname'] . "</option>";
 														endwhile;
 													?>
-													
 												</select>
 											</div>
-											<div>背番号<div/>
-											<div><input type="text" name="backno" aria-required="true"></div>
-											<div>選手名<div/>
-											<div><input type="text" name="humname" aria-required="true"></div>
-											<div><input type="submit" value="登録" class="botton"></div>
+											<div>背番号</div>
+											<div><input type="text" name="backno" required aria-required="true"></div>
+											<div>選手名</div>
+											<div><input type="text" name="humname" required aria-required="true"></div>
+											<div><input type="submit" value="登録" class="button"></div>
 										</Form>
 									</div>
 									<div class="blankrow"></div>
-									<div>次に登録したデータを一覧で表示してみる</div>
+									<div>②登録したデータを一覧で表示してみる</div>
 									<div>
 										<table class="datalist">
 											<thread>
@@ -136,11 +148,13 @@
 										</table>
 									</div>
 									<div class="blankrow"></div>
-									<div>次に登録したデータを出力してみる</div>
-										<form id="output" action="testact2.php" method="post" class="form1">
-											<div><input type="text" readonly>　　<input type="botton" value="参照"></div>
-											<div><input type="submit" value="出力実行"></div>
+									<div>③登録したデータを出力してみる</div>
+									<div>
+										<form id="output" action="testact2.php" method="post" class="form1" onsubmit="return submitChk()">
+											<div><input type="file" name="outputpass" id="outputpass" accept="text/plain"></div>
+											<div><input type="submit" value="出力実行" class="button"></div>
 										</form>
+									</div>
 								</td>
 							</tr>
 						</table>
