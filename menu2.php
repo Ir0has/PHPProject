@@ -154,6 +154,9 @@
 											<div><input type="file" name="outputpass" id="outputpass" accept="text/plain"></div>
 											<div><input type="submit" value="出力実行" class="button"></div>
 										</form>
+										<form id="output2" action="./php_menu2/testact3.php" method="post" class="form1" onsubmit="return submitChk()">
+											<div><input type="submit" value="File Download" class="button"></div>
+										</form>
 									</div>
 								</td>
 							</tr>
