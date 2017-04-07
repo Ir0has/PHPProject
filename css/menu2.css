@@ -54,9 +54,11 @@
 	font-weight:bolder;
 }
 
-.botton{
+.button{
 	font-size:100%;
-	margin:5px
+	font-weight:bolder;
+	margin:5px;
+	
 }
 
 .datalist{
