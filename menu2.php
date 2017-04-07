@@ -68,7 +68,7 @@
 								<td>
 									<div>①PHPでMySQLのテーブルレコードにフォームデータの値を登録してみる</div>
 									<div>
-										<Form id="testact1" action="testact1.php" method="post" class="form1">
+										<Form id="testact1" action="./php_menu2/testact1.php" method="post" class="form1">
 											<div class="topicssubhead">選手名登録(サンプル)</div>
 											<div>球団</div>
 											<div>
@@ -150,7 +150,7 @@
 									<div class="blankrow"></div>
 									<div>③登録したデータを出力してみる</div>
 									<div>
-										<form id="output" action="testact2.php" method="post" class="form1" onsubmit="return submitChk()">
+										<form id="output" action="./php_menu2/testact2.php" method="post" class="form1" onsubmit="return submitChk()">
 											<div><input type="file" name="outputpass" id="outputpass" accept="text/plain"></div>
 											<div><input type="submit" value="出力実行" class="button"></div>
 										</form>
