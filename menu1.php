@@ -7,7 +7,7 @@
   </head>
   <body class="menu1title">
     <div>
-      メニュー１
+      メニュー１11111111111
     </div>
     <div>
      in Linux 
